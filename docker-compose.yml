@@ -6,7 +6,7 @@ services:
     container_name: crud_db
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: supersecret
       POSTGRES_DB: crud_app
     ports:
       - "5432:5432"
@@ -14,21 +14,22 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./database.sql:/docker-entrypoint-initdb.d/init.sql
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
 
   backend:
     build: ./backend
     container_name: crud_backend
-    environment:
-      PORT: 5000
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: crud_app
+    env_file:
+      - ./backend/.env
     ports:
       - "5000:5000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
 
   frontend:

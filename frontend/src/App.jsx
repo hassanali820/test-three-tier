@@ -105,8 +105,8 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>User Management</h1>
-        <p>A simple 3-tier CRUD dashboard</p>
+        <h1>User Management Basic Three Tier App</h1>
+        <p>Made by Hassan Mehmood</p>
       </header>
 
       <main className="main-content">
