@@ -19,7 +19,7 @@ services:
       start_period: 5s
 
   backend:
-    build: ./backend
+    image: hassanmehmood820/crud-app-backend:latest
     container_name: crud_backend
     env_file:
       - ./backend/.env
@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    build: ./frontend
+    image: hassanmehmood820/crud-app-frontend:latest
     container_name: crud_frontend
     ports:
       - "80:80"
