@@ -1,85 +1,148 @@
-# 3-Tier CRUD Application
+# 🚀 Three-Tier Dockerized Application with Jenkins CI/CD
 
-A complete 3-tier CRUD app built with React, Node.js (Express), and PostgreSQL.
+## 📌 Project Overview
 
-## Prerequisites
-- **Node.js**: v14 or higher (v20+ recommended)
-- **PostgreSQL**: Installed and running locally
+This project is a full-stack three-tier application consisting of:
 
-## Setup Instructions
+* **Frontend:** React
+* **Backend:** Node.js (Express)
+* **Database:** PostgreSQL
+* **Containerization:** Docker & Docker Compose
+* **CI/CD:** Jenkins (Declarative Pipeline)
+* **Registry:** Docker Hub
+* **Deployment:** AWS EC2 (Production)
 
-### 1. Database Setup
-1. Open your PostgreSQL terminal (e.g., `psql` or pgAdmin).
-2. Create a database named `crud_app`:
-   ```sql
-   CREATE DATABASE crud_app;
-   ```
-3. Connect to the `crud_app` database.
-4. Run the SQL script located in `database.sql` to create the `users` table:
-   ```sql
-   CREATE TABLE IF NOT EXISTS users (
-     id SERIAL PRIMARY KEY,
-     name VARCHAR(100) NOT NULL,
-     email VARCHAR(100) NOT NULL
-   );
-   ```
+The application is automatically built and deployed to production when code is pushed to the `main` branch.
 
-### 2. Backend Setup
-1. Navigate to the `backend` directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Verify the `.env` file in the `backend` directory matches your PostgreSQL credentials:
-   ```env
-   PORT=5000
-   DB_USER=postgres
-   DB_PASSWORD=postgres
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=crud_app
-   ```
-4. Start the backend server:
-   ```bash
-   npm run dev
-   ```
-   *(Server will run on http://localhost:5000)*
+---
 
-### 3. Frontend Setup
-1. Open a new terminal and navigate to the `frontend` directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the React development server:
-### 4. Running with Docker
+## 🏗️ Architecture
 
-You can run the entire 3-tier application using Docker and Docker Compose. This is the easiest way to get everything up and running.
+GitHub → Jenkins → Docker Build → Docker Hub → Production Deployment
 
-1. Make sure you have Docker and Docker Compose installed.
-2. In the root directory (`d:\data\crud`), run:
-   ```bash
-   docker-compose up --build -d
-   ```
-3. The services will be available at:
-   - **Frontend**: http://localhost
-   - **Backend API**: http://localhost:5000
-   - **Database**: localhost:5432
+All services run as separate Docker containers using Docker Compose.
 
-To stop the containers, run:
-```bash
-docker-compose down
+---
+
+## 📂 Project Structure
+
+```
+.
+├── frontend/
+├── backend/
+├── docker-compose.yml
+├── Jenkinsfile
+└── README.md
 ```
 
-## Features
-- Create new users (Name and Email)
-- View all users in a list
-- Update existing user details
-- Delete users
-- Modern, clean, and responsive UI
+---
+
+## ⚙️ Prerequisites
+
+Make sure you have installed:
+
+* Docker
+* Docker Compose
+* Git
+
+---
+
+## 🐳 Run Project Locally (Without Jenkins)
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+### 2️⃣ Build and Start Containers
+
+```bash
+docker compose up -d --build
+```
+
+### 3️⃣ Access Application
+
+Frontend:
+
+```
+http://localhost:3000
+```
+
+Backend API:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 🛑 Stop Containers
+
+```bash
+docker compose down
+```
+
+---
+
+## 🔁 CI/CD Pipeline (Jenkins)
+
+The project uses Jenkins Declarative Pipeline.
+
+### Trigger
+
+* Push to `main` branch
+* GitHub Webhook triggers Jenkins automatically
+
+### Pipeline Stages
+
+1. Checkout Code
+2. Build Docker Images
+3. Push Images to Docker Hub
+4. Deploy Containers to Production
+
+---
+
+## 🐙 Docker Hub Images
+
+Frontend:
+
+```
+yourdockerhub/react-app:latest
+```
+
+Backend:
+
+```
+yourdockerhub/node-app:latest
+```
+
+---
+
+## 🌍 Production Deployment
+
+Production runs on AWS EC2.
+
+Deployment is fully automated using Jenkins.
+Whenever new code is pushed to `main`, production updates automatically.
+
+---
+
+## 🧠 What This Project Demonstrates
+
+* Docker containerization
+* Multi-service architecture
+* CI/CD automation
+* GitHub Webhook integration
+* Production deployment strategy
+* DevOps workflow implementation
+
+---
+
+## 👨‍💻 Author
+
+Hassan Mehmood
+DevOps & Cloud Enthusiast
+
+---
