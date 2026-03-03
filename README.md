@@ -1,6 +1,6 @@
-# 🚀 Three-Tier Dockerized Application with Jenkins CI/CD
+# Three-Tier Dockerized Application with Jenkins CI/CD
 
-## 📌 Project Overview
+## Project Overview
 
 This project is a full-stack three-tier application consisting of:
 
@@ -16,7 +16,7 @@ The application is automatically built and deployed to production when code is p
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 GitHub → Jenkins → Docker Build → Docker Hub → Production Deployment
 
@@ -24,7 +24,7 @@ All services run as separate Docker containers using Docker Compose.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 .
@@ -37,7 +37,7 @@ All services run as separate Docker containers using Docker Compose.
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 Make sure you have installed:
 
@@ -47,22 +47,22 @@ Make sure you have installed:
 
 ---
 
-## 🐳 Run Project Locally (Without Jenkins)
+## Run Project Locally (Without Jenkins)
 
-### 1️⃣ Clone Repository
+### 1️Clone Repository
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
 ```
 
-### 2️⃣ Build and Start Containers
+### 2️Build and Start Containers
 
 ```bash
 docker compose up -d --build
 ```
 
-### 3️⃣ Access Application
+### 3️Access Application
 
 Frontend:
 
@@ -78,7 +78,7 @@ http://localhost:5000
 
 ---
 
-## 🛑 Stop Containers
+## Stop Containers
 
 ```bash
 docker compose down
@@ -86,7 +86,7 @@ docker compose down
 
 ---
 
-## 🔁 CI/CD Pipeline (Jenkins)
+## CI/CD Pipeline (Jenkins)
 
 The project uses Jenkins Declarative Pipeline.
 
@@ -104,7 +104,7 @@ The project uses Jenkins Declarative Pipeline.
 
 ---
 
-## 🐙 Docker Hub Images
+## Docker Hub Images
 
 Frontend:
 
@@ -120,7 +120,7 @@ yourdockerhub/node-app:latest
 
 ---
 
-## 🌍 Production Deployment
+## Production Deployment
 
 Production runs on AWS EC2.
 
@@ -129,7 +129,7 @@ Whenever new code is pushed to `main`, production updates automatically.
 
 ---
 
-## 🧠 What This Project Demonstrates
+## What This Project Demonstrates
 
 * Docker containerization
 * Multi-service architecture
